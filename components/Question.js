@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, VrButton } from 'react-360'
+import Button from './button'
 import style from '../style'
 
 class Question extends Component {
@@ -11,9 +12,7 @@ class Question extends Component {
     this.handleSelect = this.handleSelect.bind(this)
   }
 
-  async handleSelect (evt, value) {
-    console.log('how to change the button', evt.nativeEvent.inputEvent)
-    console.log(evt.nativeEvent.inputEvent.button)
+  async handleSelect (value) {
     console.log('state before: ', this.state)
     await this.setState({
       choiceValue: value
@@ -31,13 +30,25 @@ class Question extends Component {
         {
           choices.map(choice => {
             return (
-              <VrButton
+              choice.value === this.state.choiceValue ?
+              (
+                <Button
+                  key={choice.value}
+                  text={choice.label}
+                  value={choice.value}
+                  selected={true}
+                  setQuestion={this.handleSelect}
+                />
+              ) :
+              (
+                <Button
                 key={choice.value}
-                style={style.choiceButton}
-                onClick={(evt) => this.handleSelect(evt, choice.value)}
-              >
-                <Text>{choice.label}</Text>
-              </VrButton>
+                text={choice.label}
+                value={choice.value}
+                selected={false}
+                setQuestion={this.handleSelect}
+              />
+              )
             )
           })
         }

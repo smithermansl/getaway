@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from '../style'
+import style from '../style'
 import { Text, VrButton } from 'react-360'
 
 class Button extends Component {
@@ -8,18 +8,18 @@ class Button extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick (evt) {
-    evt.preventDefault()
-    console.log('render first question')
+  handleClick () {
+    const { setQuestion, value } = this.props
+    setQuestion(value)
   }
 
   render () {
-    const { text } = this.props
+    const { text, selected } = this.props
     return (
-      <VrButton style={styles.enterButton} onClick={this.handleClick} >
-        <Text style={styles.enter}>
-          {text}
-        </Text>
+      <VrButton
+        style={ selected ? style.activeChoice : style.choiceButton }
+        onClick={this.handleClick} >
+        <Text style={style.enter}>{text}</Text>
       </VrButton>
     )
   }

@@ -38,16 +38,17 @@ const style = StyleSheet.create({
     height: 40,
     backgroundColor: '#000000',
     alignItems: 'center',
-    padding: 10
+    padding: 10,
+    marginTop: 20
   },
   activeChoice: {
     height: 40,
     backgroundColor: '#3d3d5c',
-    color: '#FFFFFF',
     borderWidth: 2,
     borderColor: '#FFFFFF',
     alignItems: 'center',
-    padding: 10
+    padding: 10,
+    marginTop: 20
   }
 });
 
