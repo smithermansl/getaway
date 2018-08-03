@@ -5,7 +5,9 @@ import style from '../style'
 const VacationView = () => {
   return (
     <View>
-
+      <Text>This is your vacation!</Text>
     </View>
   )
 }
+
+export default VacationView
