@@ -3,6 +3,7 @@ import { AppRegistry, Text, View } from 'react-360'
 import Question from './components/Question'
 import Home from './components/home'
 import questions from './questions.json'
+import style from './style'
 
 export default class stackathon extends React.Component {
   constructor() {
@@ -37,15 +38,13 @@ export default class stackathon extends React.Component {
 
     if (Object.keys(currQuestion).length) {
       return (
-        <View >
+        <View style={style.panel}>
           <Question ask={ask} choices={choices} handleSubmit={this.handleSubmit} />
         </View>
       )
     } else {
       return (
-        <View>
           <Home handleEnter={this.handleEnter} />
-        </View>
       )
     }
   }

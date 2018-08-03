@@ -33,6 +33,21 @@ const style = StyleSheet.create({
   enter: {
     fontSize: 20,
     color: '#FFFFFF'
+  },
+  choiceButton: {
+    height: 40,
+    backgroundColor: '#000000',
+    alignItems: 'center',
+    padding: 10
+  },
+  activeChoice: {
+    height: 40,
+    backgroundColor: '#3d3d5c',
+    color: '#FFFFFF',
+    borderWidth: 2,
+    borderColor: '#FFFFFF',
+    alignItems: 'center',
+    padding: 10
   }
 });
 
