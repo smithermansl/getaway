@@ -1,9 +1,10 @@
 import React from 'react'
 import { AppRegistry, View } from 'react-360'
 import Question from './components/Question'
-import Home from './components/home'
+import Home from './components/Home'
 import questions from './questions.json'
 import style from './style'
+import { tally, findMax } from './helpers'
 
 export default class stackathon extends React.Component {
   constructor() {
@@ -11,7 +12,8 @@ export default class stackathon extends React.Component {
     this.state = {
       currQuestion: {},
       index: 1,
-      values: []
+      values: [],
+      vacationId: 0
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleEnter = this.handleEnter.bind(this)
@@ -32,8 +34,17 @@ export default class stackathon extends React.Component {
     }))
   }
 
+  async setVacation () {
+    const { values } = this.state,
+    occurrences = tally(values),
+    mostFrequent = findMax(occurrences)
+    await this.setState({
+      vacationId: mostFrequent
+    })
+  }
+
   render() {
-    const { currQuestion } = this.state
+    const { currQuestion, vacationId } = this.state
     const { ask, choices } = currQuestion
 
     if (Object.keys(currQuestion).length) {
@@ -41,6 +52,10 @@ export default class stackathon extends React.Component {
         <View style={style.panel}>
           <Question ask={ask} choices={choices} handleSubmit={this.handleSubmit} />
         </View>
+      )
+    } else if (vacationId !== 0) {
+      return (
+        <VacationView id={vacationId} />
       )
     } else {
       return (

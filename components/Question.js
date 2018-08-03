@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, VrButton } from 'react-360'
-import Button from './button'
+import Button from './Button'
 
 class Question extends Component {
   constructor (props) {
