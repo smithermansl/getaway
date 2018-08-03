@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, VrButton } from 'react-360'
 import Button from './button'
-import style from '../style'
 
 class Question extends Component {
   constructor (props) {
@@ -10,20 +9,26 @@ class Question extends Component {
       choiceValue: 0
     }
     this.handleSelect = this.handleSelect.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   async handleSelect (value) {
-    console.log('state before: ', this.state)
     await this.setState({
       choiceValue: value
     })
-    console.log('state after: ', this.state)
+  }
+
+  async onSubmit () {
+    const { handleSubmit } = this.props
+    const { choiceValue } = this.state
+    handleSubmit(choiceValue)
+    await this.setState({
+      choiceValue: 0
+    })
   }
 
   render () {
-    // can destructure props when passed in?
-    const { ask, choices, handleSubmit } = this.props
-    const { choiceValue } = this.state
+    const { ask, choices } = this.props
     return (
       <View>
         <Text>{ask}</Text>
@@ -52,7 +57,7 @@ class Question extends Component {
             )
           })
         }
-        <VrButton onClick={() => handleSubmit(choiceValue)}>
+        <VrButton onClick={this.onSubmit}>
           <Text>Next</Text>
         </VrButton>
       </View>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppRegistry, Text, View } from 'react-360'
+import { AppRegistry, View } from 'react-360'
 import Question from './components/Question'
 import Home from './components/home'
 import questions from './questions.json'
@@ -24,8 +24,8 @@ export default class stackathon extends React.Component {
     })
   }
 
-  handleSubmit (value) {
-    this.setState((prevState) => ({
+  async handleSubmit (value) {
+    await this.setState((prevState) => ({
       index: prevState.index + 1,
       currQuestion: questions[prevState.index],
       values: [...prevState.values, value]
