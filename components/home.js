@@ -15,4 +15,3 @@ const Home = ({ handleEnter }) => {
 }
 
 export default Home
-

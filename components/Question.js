@@ -10,6 +10,7 @@ class Question extends Component {
     }
     this.handleSelect = this.handleSelect.bind(this)
     this.onNext = this.onNext.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   async handleSelect (value) {
@@ -27,9 +28,14 @@ class Question extends Component {
     })
   }
 
+  async onSubmit () {
+    const { setVacation } = this.props
+    await this.onNext()
+    setVacation()
+  }
+
   render () {
-    const { ask, choices, index, setVacation } = this.props
-    console.log('this is the index prop', index)
+    const { ask, choices, index } = this.props
     return (
       <View>
         <Text>{ask}</Text>
@@ -60,7 +66,7 @@ class Question extends Component {
         }
         {
           index ? (
-            <VrButton onClick={setVacation}>
+            <VrButton onClick={this.onSubmit}>
               <Text>Submit</Text>
             </VrButton>
           ) : (

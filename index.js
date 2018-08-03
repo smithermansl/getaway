@@ -34,12 +34,16 @@ export default class stackathon extends React.Component {
       currQuestion: questions[prevState.index],
       values: [...prevState.values, value]
     }))
+    console.log('state in handle submit', this.state)
   }
 
   async setVacation () {
-    const { values } = this.state,
-    occurrences = tally(values),
-    mostFrequent = findMax(occurrences)
+    const { values } = this.state
+    console.log('the values', values)
+    const occurrences = tally(values)
+    console.log('the ocurrences', occurrences)
+    const mostFrequent = findMax(occurrences)
+    console.log('most frequently ocurring num', mostFrequent)
     console.log('state before vacation: ', this.state)
     await this.setState({
       vacationId: mostFrequent
