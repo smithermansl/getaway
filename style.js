@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-360'
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
   panel: {
     // Fill the entire surface
     width: 1000,
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default styles
+export default style
