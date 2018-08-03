@@ -11,11 +11,11 @@ class Question extends Component {
   }
 
   render () {
-    const { question, choices, handleSubmit } = this.props
+    const { ask, choices, handleSubmit } = this.props
     const { choiceValue } = this.state
     return (
       <View>
-        <Text>{question}</Text>
+        <Text>{ask}</Text>
         {
           choices.map(choice => {
             return (

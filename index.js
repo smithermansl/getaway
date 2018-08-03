@@ -1,68 +1,53 @@
 import React from 'react'
-import { AppRegistry, Text, View, } from 'react-360'
-import Home from './components/home'
+import { AppRegistry, Text, View } from 'react-360'
 import Question from './components/Question'
-
-const data = [{
-  "question": "What song best fits your current mood?",
-  "choices": [{
-    "label": "Material World - Madonna",
-    "value": 1
-  }, {
-    "label": "Ain't No Mountain High Enough - Marvin Gaye & Tammy Terrell",
-    "value": "2"
-  }, {
-    "label": "Up From The South - The Budos Band",
-    "value": 3
-  }, {
-    "label": "Ain't No Sunshine - Bill Withers",
-    "value": 5
-  }]
-},
-{
-  "question": "Are you a turd?",
-  "choices": [{
-    "label": "Material World - Madonna",
-    "value": 1
-  }, {
-    "label": "Ain't No Mountain High Enough - Marvin Gaye & Tammy Terrell",
-    "value": "2"
-  }, {
-    "label": "Up From The South - The Budos Band",
-    "value": 3
-  }, {
-    "label": "Ain't No Sunshine - Bill Withers",
-    "value": 5
-  }]
-}]
+import Home from './components/home'
+import questions from './questions.json'
 
 export default class stackathon extends React.Component {
   constructor() {
     super()
     this.state = {
-      currQuestion: data[0],
+      currQuestion: {},
       index: 1,
       values: []
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleEnter = this.handleEnter.bind(this)
+  }
+
+  // sets the current question on state to the first object in the array
+  handleEnter () {
+    this.setState({
+      currQuestion: questions[0]
+    })
   }
 
   handleSubmit (value) {
     this.setState((prevState) => ({
       index: prevState.index + 1,
-      currQuestion: data[prevState.index],
+      currQuestion: questions[prevState.index],
       values: [...prevState.values, value]
     }))
-    console.log('state after click', this.state)
   }
 
   render() {
-    const { question, choices } = this.state.currQuestion
-    return (
-      <View >
-        <Question question={question} choices={choices} handleSubmit={this.handleSubmit} />
-      </View>
-    )
+    const { currQuestion } = this.state
+    const { ask, choices } = currQuestion
+
+    if (Object.keys(currQuestion).length) {
+      return (
+        <View >
+          <Question ask={ask} choices={choices} handleSubmit={this.handleSubmit} />
+        </View>
+      )
+    } else {
+      return (
+        <View>
+          <Home handleEnter={this.handleEnter} />
+        </View>
+      )
+    }
   }
 }
 

@@ -1,32 +1,65 @@
-[{
-  "question": "What song best fits your current mood?",
+  [{
+  "ask": "Which song best fits your current mood?",
   "choices": [{
     "label": "Material World - Madonna",
     "value": 1
   }, {
     "label": "Ain't No Mountain High Enough - Marvin Gaye & Tammy Terrell",
-    "value": "2"
+    "value": 2
   }, {
-    "label": "Up From The South - The Budos Band",
+    "label": "Nights in White Satin - The Moody Blues",
     "value": 3
   }, {
-    "label": "Ain't No Sunshine - Bill Withers",
+    "label": "Take it Easy - The Eagles",
     "value": 5
   }]
 },
 {
-  "question": "Are you a turd?",
+  "ask": "In which activity would you like to participate?",
   "choices": [{
-    "label": "Material World - Madonna",
+    "label": "Skydiving",
     "value": 1
   }, {
-    "label": "Ain't No Mountain High Enough - Marvin Gaye & Tammy Terrell",
-    "value": "2"
+    "label": "Hiking",
+    "value": 2
   }, {
-    "label": "Up From The South - The Budos Band",
+    "label": "Beach Volleyball",
     "value": 3
   }, {
-    "label": "Ain't No Sunshine - Bill Withers",
+    "label": "Soccer",
+    "value": 5
+  }]
+},
+{
+  "ask": "Which would you prefer to eat?",
+  "choices": [{
+    "label": "Jerk Chicken",
+    "value": 1
+  }, {
+    "label": "Baguette with Cheese & Tomato",
+    "value": 2
+  }, {
+    "label": "Laksa",
+    "value": 3
+  }, {
+    "label": "Dumplings",
+    "value": 5
+  }]
+},
+{
+  "ask": "How are you feeling today?",
+  "choices": [{
+    "label": "Moody",
+    "value": 1
+  }, {
+    "label": "Anxious",
+    "value": 2
+  }, {
+    "label": "Excited",
+    "value": 3
+  }, {
+    "label": "Giddy",
     "value": 5
   }]
 }]
+

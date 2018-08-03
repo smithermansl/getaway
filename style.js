@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-360'
 const style = StyleSheet.create({
   panel: {
     // Fill the entire surface
-    width: 1000,
-    height: 600,
+    width: 600,
+    height: 400,
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
     justifyContent: 'center',
     alignItems: 'center',

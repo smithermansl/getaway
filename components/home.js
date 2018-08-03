@@ -1,22 +1,18 @@
-import React, { Component } from 'react'
-import styles from '../style'
-import { Text, View } from 'react-360'
-import Button from './button'
+import React from 'react'
+import style from '../style'
+import { Text, View, VrButton } from 'react-360'
+// import Button from './button'
 
-class Home extends Component {
-  constructor (props) {
-    super(props)
-  }
-  
-  render () {
+const Home = ({ handleEnter }) => {
     return (
-      <View style={styles.greetingBox}>
-        <Text>
-          { this.props.vacation ? 'Take a Virtual Vacation' : 'back to work!!!' }
-        </Text>
+      <View style={style.panel}>
+        <Text>Find Your Ideal Virtual Vacation</Text>
+        <VrButton style={style.enterButton} onClick={handleEnter}>
+          <Text>Take the Quiz</Text>
+        </VrButton>
       </View>
     )
-  }
 }
 
 export default Home
+
