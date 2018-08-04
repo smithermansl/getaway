@@ -43,9 +43,10 @@ class Question extends Component {
 
   renderVacation () {
     const { vacationId } = this.state
+    const { goHome } = this.props
     if (vacationId !== 0) {
       return (
-        <VacationView id={vacationId} />
+        <VacationView id={vacationId} goHome={goHome} />
       )
     }
   }

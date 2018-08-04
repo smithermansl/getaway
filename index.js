@@ -1,10 +1,9 @@
 import React from 'react'
-import { AppRegistry, View } from 'react-360'
+import { Environment, asset, AppRegistry, View } from 'react-360'
 import Question from './components/Question'
 import Home from './components/Home'
 import questions from './questions.json'
 import style from './style'
-// import { tally, findMax } from './helpers'
 
 export default class stackathon extends React.Component {
   constructor() {
@@ -17,6 +16,7 @@ export default class stackathon extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleEnter = this.handleEnter.bind(this)
     this.pushLast = this.pushLast.bind(this)
+    this.goHome = this.goHome.bind(this)
   }
 
   handleEnter () {
@@ -39,6 +39,14 @@ export default class stackathon extends React.Component {
     }))
   }
 
+  async goHome () {
+    await this.setState({
+      currQuestion: {},
+      index: 1,
+      values: []
+    })
+  }
+
   render() {
     const { currQuestion, index, values } = this.state
     const { ask, choices } = currQuestion
@@ -52,7 +60,8 @@ export default class stackathon extends React.Component {
             index={(index === questions.length)}
             handleSubmit={this.handleSubmit}
             values={values}
-            pushLast={this.pushLast} />
+            pushLast={this.pushLast}
+            goHome={this.goHome} />
         </View>
       )
     } else {
