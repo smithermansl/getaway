@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-360'
+import { View, Text } from 'react-360'
 import style from '../style'
 
 const VacationView = () => {

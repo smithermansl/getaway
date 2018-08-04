@@ -2,10 +2,9 @@ import React from 'react'
 import { AppRegistry, View } from 'react-360'
 import Question from './components/Question'
 import Home from './components/Home'
-import VacationView from './components/VacationView'
 import questions from './questions.json'
 import style from './style'
-import { tally, findMax } from './helpers'
+// import { tally, findMax } from './helpers'
 
 export default class stackathon extends React.Component {
   constructor() {
@@ -13,15 +12,12 @@ export default class stackathon extends React.Component {
     this.state = {
       currQuestion: {},
       index: 1,
-      values: [],
-      vacationId: 0
+      values: []
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleEnter = this.handleEnter.bind(this)
-    this.setVacation = this.setVacation.bind(this)
   }
 
-  // sets the current question on state to the first object in the array
   handleEnter () {
     this.setState({
       currQuestion: questions[0]
@@ -37,22 +33,8 @@ export default class stackathon extends React.Component {
     console.log('state in handle submit', this.state)
   }
 
-  async setVacation () {
-    const { values } = this.state
-    console.log('the values', values)
-    const occurrences = tally(values)
-    console.log('the ocurrences', occurrences)
-    const mostFrequent = findMax(occurrences)
-    console.log('most frequently ocurring num', mostFrequent)
-    console.log('state before vacation: ', this.state)
-    await this.setState({
-      vacationId: mostFrequent
-    })
-    console.log('state after setVacation: ', this.state)
-  }
-
   render() {
-    const { currQuestion, vacationId, index } = this.state
+    const { currQuestion, index, values } = this.state
     const { ask, choices } = currQuestion
 
     if (Object.keys(currQuestion).length) {
@@ -63,16 +45,12 @@ export default class stackathon extends React.Component {
             choices={choices}
             index={(index === questions.length)}
             handleSubmit={this.handleSubmit}
-            setVacation={this.setVacation} />
+            values={values} />
         </View>
-      )
-    } else if (vacationId !== 0) {
-      return (
-        <VacationView id={vacationId} />
       )
     } else {
       return (
-          <Home handleEnter={this.handleEnter} />
+        <Home handleEnter={this.handleEnter} />
       )
     }
   }
