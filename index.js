@@ -31,14 +31,12 @@ export default class stackathon extends React.Component {
       currQuestion: questions[prevState.index],
       values: [...prevState.values, value]
     }))
-    console.log('state in handle submit', this.state)
   }
 
   async pushLast (value) {
     await this.setState((prevState) => ({
       values: [...prevState.values, value]
     }))
-    console.log('reseting state by adding last value', this.state)
   }
 
   render() {

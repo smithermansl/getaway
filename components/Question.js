@@ -39,7 +39,6 @@ class Question extends Component {
       choiceValue: 0,
       vacationId: findMax(tally(values))
     })
-    console.log('state after submit func in Question', this.state)
   }
 
   renderVacation () {
