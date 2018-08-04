@@ -32,10 +32,12 @@ class Question extends Component {
   }
 
   async onSubmit () {
-    const { values } = this.props
+    const { choiceValue } = this.state
+    const { values, pushLast } = this.props
+    await pushLast(choiceValue)
     await this.setState({
       choiceValue: 0,
-      vacationId: 5
+      vacationId: findMax(tally(values))
     })
     console.log('state after submit func in Question', this.state)
   }

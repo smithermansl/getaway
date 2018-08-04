@@ -16,6 +16,7 @@ export default class stackathon extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleEnter = this.handleEnter.bind(this)
+    this.pushLast = this.pushLast.bind(this)
   }
 
   handleEnter () {
@@ -33,6 +34,13 @@ export default class stackathon extends React.Component {
     console.log('state in handle submit', this.state)
   }
 
+  async pushLast (value) {
+    await this.setState((prevState) => ({
+      values: [...prevState.values, value]
+    }))
+    console.log('reseting state by adding last value', this.state)
+  }
+
   render() {
     const { currQuestion, index, values } = this.state
     const { ask, choices } = currQuestion
@@ -45,7 +53,8 @@ export default class stackathon extends React.Component {
             choices={choices}
             index={(index === questions.length)}
             handleSubmit={this.handleSubmit}
-            values={values} />
+            values={values}
+            pushLast={this.pushLast} />
         </View>
       )
     } else {
