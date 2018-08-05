@@ -3,6 +3,7 @@ import { Text, View, VrButton } from 'react-360'
 import Button from './Button'
 import VacationView from './VacationView'
 import { tally, findMax } from '../helpers'
+import style from '../style'
 
 class Question extends Component {
   constructor (props) {
@@ -58,7 +59,7 @@ class Question extends Component {
     if (vacationId === 0) {
       return (
         <View>
-          <Text>{ask}</Text>
+          <Text style={style.question} >{ask}</Text>
           {
             choices && choices.map(choice => {
               return (
@@ -86,11 +87,11 @@ class Question extends Component {
           }
           {
             index ? (
-              <VrButton onClick={this.onSubmit}>
+              <VrButton style={style.nextButton} onClick={this.onSubmit}>
                 <Text>Submit</Text>
               </VrButton>
             ) : (
-              <VrButton onClick={this.onNext}>
+              <VrButton style={style.nextButton} onClick={this.onNext}>
                 <Text>Next</Text>
               </VrButton>
             )

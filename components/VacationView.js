@@ -13,7 +13,7 @@ class VacationView extends Component {
   resetHomeView () {
     const { goHome } = this.props
     goHome()
-    Environment.setBackgroundImage(asset('images/360_world.jpg'))
+    Environment.setBackgroundImage(asset('images/penn.jpg'))
     AudioModule.stopEnvironmental()
   }
 
@@ -29,8 +29,8 @@ class VacationView extends Component {
 
     return (
       <View>
-        <Text>Welcome to {vacation.title}</Text>
-        <VrButton onClick={this.resetHomeView}>
+        <Text style={style.home}>Welcome to {vacation.title}</Text>
+        <VrButton style={style.nextButton} onClick={this.resetHomeView}>
           <Text>Head Home</Text>
         </VrButton>
       </View>

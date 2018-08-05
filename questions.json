@@ -1,65 +1,99 @@
-  [{
-  "ask": "Which song best fits your current mood?",
+[
+{
+  "ask": "Which most closely describes your current mood?",
   "choices": [{
-    "label": "Material World - Madonna",
+    "label": "Cheery, playful, or excited",
     "value": 1
   }, {
-    "label": "Ain't No Mountain High Enough - Marvin Gaye & Tammy Terrell",
-    "value": 2
-  }, {
-    "label": "Nights in White Satin - The Moody Blues",
-    "value": 3
-  }, {
-    "label": "Take it Easy - The Eagles",
+    "label": "Moody, lonely, or fearful",
     "value": 5
+  }, {
+    "label": "Relaxed, thoughtful, or curious",
+    "value": 6
+  }, {
+    "label": "Lazy, reclusive, or shy",
+    "value": 3
   }]
 },
 {
-  "ask": "In which activity would you like to participate?",
+  "ask": "Which meal would you like to eat?",
   "choices": [{
-    "label": "Skydiving",
+    "label": "Bowl of Pho",
+    "value": 6
+  }, {
+    "label": "Baguette with Cheese and Tomato",
+    "value": 2
+  }, {
+    "label": "Meatballs",
     "value": 1
+  }, {
+    "label": "Steak and Potatoes",
+    "value": 4
+  }]
+},
+{
+  "ask": "Which is your favorite pastime?",
+  "choices": [{
+    "label": "Reading",
+    "value": 3
   }, {
     "label": "Hiking",
+    "value": 4
+  }, {
+    "label": "Visiting Museums",
     "value": 2
   }, {
-    "label": "Beach Volleyball",
+    "label": "Swimming",
+    "value": 6
+  }]
+},
+{
+  "ask": "Which of these is your favorite song?",
+  "choices": [{
+    "label": "Life on Mars - David Bowie",
+    "value": 5
+  }, {
+    "label": "Across the Universe - The Beatles",
+    "value": 1
+  }, {
+    "label": "Good Vibrations - The Beach Boys",
+    "value": 6
+  }, {
+    "label": "Idioteque - Radiohead",
+    "value": 2
+  }]
+},
+{
+  "ask": "Which describes your personal style?",
+  "choices": [{
+    "label": "Cozy and Comfortable",
     "value": 3
   }, {
-    "label": "Soccer",
+    "label": "Fashion Forward",
+    "value": 2
+  }, {
+    "label": "Utilitarian",
+    "value": 4
+  }, {
+    "label": "Lots of Layers",
     "value": 5
   }]
 },
 {
-  "ask": "Which would you prefer to eat?",
+  "ask": "What's your drink?",
   "choices": [{
-    "label": "Jerk Chicken",
+    "label": "Whiskey, neat",
+    "value": 4
+  }, {
+    "label": "Moscow Mule",
+    "value": 5
+  }, {
+    "label": "Beer",
     "value": 1
   }, {
-    "label": "Baguette with Cheese & Tomato",
-    "value": 2
-  }, {
-    "label": "Laksa",
+    "label": "Wine",
     "value": 3
-  }, {
-    "label": "Dumplings",
-    "value": 5
   }]
-},
-{
-  "ask": "How are you feeling today?",
-  "choices": [{
-    "label": "Moody",
-    "value": 1
-  }, {
-    "label": "Anxious",
-    "value": 2
-  }, {
-    "label": "Excited",
-    "value": 3
-  }, {
-    "label": "Giddy",
-    "value": 5
-  }]
-}]
+}
+]
 

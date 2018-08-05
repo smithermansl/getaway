@@ -19,7 +19,7 @@ class Button extends Component {
       <VrButton
         style={ selected ? style.activeChoice : style.choiceButton }
         onClick={this.handleClick} >
-        <Text style={style.enter}>{text}</Text>
+        <Text style={ selected ? style.activeChoiceText : style.choiceText }>{text}</Text>
       </VrButton>
     )
   }
