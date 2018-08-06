@@ -43,7 +43,7 @@ const style = StyleSheet.create({
   choiceText: {
     fontSize: 24,
     fontWeight: '300',
-    color: '#5D5F5B'
+    color: '#2E2F2D'
   },
   activeChoice: {
     width: 400,
